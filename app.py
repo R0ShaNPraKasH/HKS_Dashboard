@@ -857,10 +857,12 @@ elif selected_section == "Waste as a Liaison":
             <div style="background-color: #FFFFFF; border: 2px solid #8ECAE6; border-radius: 12px; padding: 20px; box-shadow: 2px 4px 10px rgba(0,0,0,0.05);">
                 <h3 style="margin-top:0; color:#1D3557; font-size: 18px;">Key Market Rates</h3>
                 <hr style="margin: 10px 0;">
-                <p style="margin-bottom: 10px; font-size: 15px;"><b>1. User Fee (Household):</b><br> ₹ 50 - ₹ 150 / month</p>
-                <p style="margin-bottom: 10px; font-size: 15px;"><b>2. Sorted Plastic (Raw):</b><br> ₹ 4 / KG</p>
-                <p style="margin-bottom: 10px; font-size: 15px;"><b>3. Recycled Plastic (High-Grade):</b><br> ₹ 12 / KG</p>
-                <p style="margin-bottom: 0px; font-size: 15px;"><b>4. Recycled Food (Fertilizer):</b><br> ₹ 2.5 / KG</p>
+                <p style="margin-bottom: 10px; font-size: 15px;"><b>1. User Fees:</b><br> ₹ 150</p>
+                <p style="margin-bottom: 10px; font-size: 15px;"><b>2. Waste Plastic:</b><br> ₹ 4 / KG</p>
+                <p style="margin-bottom: 10px; font-size: 15px;"><b>3. Recycled Plastic:</b><br> ₹ 12 / KG</p>
+                <p style="margin-bottom: 10px; font-size: 15px;"><b>4. Waste Food:</b><br> ₹ 2.5 / KG</p>
+                <p style="margin-bottom: 10px; font-size: 15px;"><b>5. Recycled Food Waste:</b><br> ₹ 11 / KG</p>
+                <p style="margin-bottom: 0px; font-size: 15px;"><b>6. Bad Plastic (to Cement factories):</b><br> ₹ 1 / KG</p>
             </div>
             """, unsafe_allow_html=True)
             
