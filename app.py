@@ -85,6 +85,16 @@ st.markdown("""
     table { color: #000000 !important; }
     th, td { color: #000000 !important; background-color: #FDFDFD !important; border-color: #E2E2D0 !important; }
     thead tr th { background-color: #C5E1A5 !important; color: #000000 !important; font-weight: bold !important; }
+    
+            /* Fix the Streamlit Top Bar / Header */
+    [data-testid="stHeader"] {
+        background-color: #F5F5DC !important; /* Matches your beige background */
+    }
+    
+    /* Ensure the menu icons and buttons in the top bar are black */
+    [data-testid="stHeader"] * {
+        color: #000000 !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
