@@ -601,7 +601,7 @@ elif selected_section == "On the Ground":
         st.subheader("Visual Comparisons")
         
         # Replaced the redundant graph with the requested Distance Graph
-        tab1, tab2, tab3 = st.tabs(["Coverage %", "Distance to Facilities", "Collection Frequency"])
+        tab1, tab2 = st.tabs(["Coverage %", "Distance to Facilities"])
         
         with tab1:
             fig1 = px.bar(df, x='Ward Name', y='Coverage_Pct', color_discrete_sequence=['#C5E1A5'])
@@ -615,22 +615,6 @@ elif selected_section == "On the Ground":
             fig2.update_layout(barmode='group')
             st.plotly_chart(format_chart(fig2, "Distance to Processing Facilities by Ward (KM)"), use_container_width=True, theme=None)
             
-        with tab3:
-            # Smart search for the column in case Excel has a sneaky space at the end
-            freq_cols = [c for c in df.columns if 'Num of times a single household' in c]
-            
-            if len(freq_cols) > 0:
-                actual_col = freq_cols[0]
-                df[actual_col] = pd.to_numeric(df[actual_col], errors='coerce').fillna(0)
-                
-                # 1. Build the chart
-                fig3 = px.bar(df, x='Ward Name', y=actual_col, color_discrete_sequence=['#C5E1A5'])
-                
-                # 2. DRAW the chart (This is the line that was missing!)
-                st.plotly_chart(format_chart(fig3, "Monthly Collection Frequency per Household"), use_container_width=True, theme=None)
-            else:
-                st.error("Could not find the collection frequency column. Please check the Excel header!")
-
 elif selected_section == "Scoring System":
     
     # --- 1. Data Prep & Scoring Engine ---
@@ -720,13 +704,12 @@ elif selected_section == "Scoring System":
         }
         st.table(pd.DataFrame(methodology_data))
         
-        st.info("💡 **Note on Normalization:** All raw metrics are Min-Max scaled. For negative indicators (like Distance), the formula is inverted so that the lowest raw distance achieves a perfect score of 100.")
 
     else:
         st.subheader("Ward-wise Spatial Scoring Map")
         
         # Dropdown to select which score to map
-        score_options = ['Total HKS Performance Score', 'Social Score', 'Economic Score', 'Coverage Score']
+        score_options = ['Social Score', 'Economic Score', 'Coverage Score', 'Total HKS Performance Score']
         selected_score = st.selectbox("Select Index to Visualize:", score_options)
         
         # Two columns: Map on the left, Top 5 Leaderboard on the right
